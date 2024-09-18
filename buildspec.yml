@@ -1,9 +1,9 @@
-version: 0.0
-Resources:
-  - HelloWorld:
-      Type: AWS::Lambda::Function
-      Properties:
-        Name: "HelloWorld"
-        Alias: "dev"
-        CurrentVersion: "{{CurrentVersion}}"
-        TargetVersion: "{{TargetVersion}}"
+version: 0.2
+
+phases:
+  build:
+    commands:
+      - ls
+artifacts:
+  files:
+    - "**/*"
