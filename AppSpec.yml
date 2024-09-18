@@ -1,10 +1,12 @@
-appspec.yml
 version: 0.0
 Resources:
-  - HelloWorld:
+  - myLambdaFunction:
       Type: AWS::Lambda::Function
       Properties:
         Name: "HelloWorld"
-        Alias: "dev"
-        CurrentVersion: "{{CurrentVersion}}"
-        TargetVersion: "{{TargetVersion}}"
+        Alias: "HelloWorldAlias"
+        CurrentVersion: "1"
+        TargetVersion: "2"
+Hooks:
+  - BeforeAllowTraffic: "LambdaFunctionToValidateBeforeTrafficShift"
+  - AfterAllowTraffic: "LambdaFunctionToValidateAfterTrafficShift"
