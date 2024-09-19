@@ -1,17 +1,17 @@
 version: 0.2
 
 phases:
-　　install:
-　　　　runtime-versions:
-　　　　　　python: 3.11
-　　　　commands:
-           - pip install pytest:
-　　pre_build:
-　　　　commands:
-　　　　　　- python -m pytest test_lambda.py:
-　　build:
-　　　　commands:
-　　　　　　- sam package --template-file template.yml --s3-bucket codepipeline-ap-northeast-1-621537184721 --output-template-file package.yml:
+    install:
+        runtime-versions:
+            python: 3.11
+        commands:
+            - pip install pytest
+    pre_build:
+        commands:
+            - python -m pytest test_lambda.py
+    build:
+        commands:
+            - sam package --template-file template.yml --s3-bucket codepipeline-ap-northeast-1-621537184721 --output-template-file package.yml
 artifacts:
-　　files:
-　　　　- package.yml:
+    files:
+        - package.yml
