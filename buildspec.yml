@@ -9,9 +9,6 @@ phases:
     pre_build:
         commands:
             - python -m pytest test_lambda.py
-    build:
-        commands:
-            - sam package --template-file template.yml --s3-bucket codepipeline-ap-northeast-2-362854396806 --output-template-file package.yml
 artifacts:
     files:
         - package.yml
