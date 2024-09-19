@@ -5,9 +5,7 @@ phases:
 　　　　runtime-versions:
 　　　　　　python: 3.11
 　　　　commands:
-
-    
-　　　　　　- pip install pytest
+           - pip install pytest:
 　　pre_build:
 　　　　commands:
 　　　　　　- python -m pytest test_lambda.py
